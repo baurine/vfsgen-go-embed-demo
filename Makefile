@@ -4,7 +4,8 @@ default: server
 
 embed_ui:
 	cd ui && yarn && yarn build
-	tools/embed_assets/embed_ui_assets.sh
+	rm -rf uiserver/ui_dist
+	mv ui/dist uiserver/ui_dist
 
 server:
 ifeq ($(UI),1)

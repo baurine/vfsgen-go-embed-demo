@@ -15,8 +15,8 @@
 package uiserver
 
 import (
-	"net/http"
+	"embed"
 )
 
-// Assets represent the front-end assets
-var Assets http.FileSystem = nil
+// Assets represent the front-end uiAssets
+var uiAssets embed.FS

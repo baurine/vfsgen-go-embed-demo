@@ -21,7 +21,7 @@ func main() {
 	}
 
 	// ui assets
-	router.StaticFS("/demo", uiserver.Assets)
+	router.StaticFS("/demo", uiserver.Assets())
 	router.GET("/", func(c *gin.Context) {
 		c.Redirect(http.StatusMovedPermanently, "/demo")
 		c.Abort()
