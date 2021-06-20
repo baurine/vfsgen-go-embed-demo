@@ -4,6 +4,12 @@ import vitePluginImp from 'vite-plugin-imp'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/demo',
+  server: {
+    proxy: {
+      '/api': 'http://localhost:8080',
+    },
+  },
   plugins: [
     reactRefresh(),
     vitePluginImp({
