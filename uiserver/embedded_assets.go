@@ -6,6 +6,6 @@ import (
 	"embed"
 )
 
-// Assets represent the front-end assets
+// uiAssets represent the frontend ui assets
 //go:embed ui_dist
 var uiAssets embed.FS

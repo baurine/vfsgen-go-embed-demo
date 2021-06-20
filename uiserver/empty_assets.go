@@ -18,5 +18,5 @@ import (
 	"embed"
 )
 
-// Assets represent the front-end uiAssets
+// uiAssets represent the frontend ui assets
 var uiAssets embed.FS
