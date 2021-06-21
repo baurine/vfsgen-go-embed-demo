@@ -70,7 +70,7 @@ run:
 
 为了节省时间，直接从 https://github.com/baurine/try-vite/tree/main/vite-tailwind 拷贝一个前端项目。这是一个用 vite 创建的 react 前端项目，使用了 tailwind css 框架，不过这不重要，只是随手拿来用的。
 
-进入 ui 目录执行 `yarn && yarn dev` 就可以把前端项目跑起来了，这个前端 demo 有三个简单的页面，相互间可以跳转。(有一点要注意，路由要使用 HashRouter，而不要使用 BrowserRouter)。
+进入 ui 目录执行 `yarn && yarn dev` 就可以把前端项目跑起来了，这个前端 demo 有三个简单的页面，相互间可以跳转。(注意路由使用 HashRouter，不要使用 BrowserRouter，对于前后端分离项目使用 BrowserRouter 很麻烦)。
 
 AntdPage 这个页面上有个 button，我们添加点击后去访问后端的 /api/v1/ping 接口，并将结果 alert 的逻辑。
 
@@ -302,6 +302,8 @@ export default defineConfig({
 <link rel="modulepreload" href="/demo/assets/vendor.55f9bd99.js" />
 <link rel="stylesheet" href="/demo/assets/index.42881954.css" />
 ```
+
+> 如果是一个 CRA 的前端项目，应该修改 package.json，加上 `"homepage": "/demo"` 选项。
 
 再次 `make embed_ui && UI=1 make && make run`，访问 localhost:8080 后，自动重定向到 localhost:8080/demo，可以正确加载前端页面。
 
