@@ -111,7 +111,7 @@ export default function AntdPage() {
 }
 ```
 
-![](./demo-ping.png)
+![](./assets/demo-ping.png)
 
 这样 demo 就准备好了。
 
@@ -121,7 +121,7 @@ export default function AntdPage() {
 
 大致流程如下图所示。
 
-![](./vfsgen-embed.png)
+![](./assets/vfsgen-embed.png)
 
 在开发模式下，我们不需要在后端代码中嵌入前端代码，我们声明一个空的 ui assets，在头部用注释声明条件编译选项为 `// +build !ui_server`，如果编译命令中没有 `-tags ui_server` 选项，就会编译此文件；如果编译命令中包含 `-tags ui_server` 选项，则不会编译此文件。
 
@@ -307,7 +307,7 @@ export default defineConfig({
 
 再次 `make embed_ui && UI=1 make && make run`，访问 localhost:8080 后，自动重定向到 localhost:8080/demo，可以正确加载前端页面。
 
-![](./demo-page.png)
+![](./assets/demo-page.png)
 
 ## 使用 go embed
 
@@ -329,7 +329,7 @@ var uiAssets embed.FS
 
 不过我们还是继续遵循开发模式下不嵌入前端代码，只在生产模式下嵌入前端代码的逻辑。则流程如下所示：
 
-![](./go-embed.png)
+![](./assets/go-embed.png)
 
 我们在 uiserver 下创建 `empty_assets.go` 和 `embedded_assets.go` 两个文件，前者声明一个加载空目录的 embed.FS assets，用于开发模式；后者用于加载真正的 ui assets，用于最终的发布。
 
@@ -387,7 +387,7 @@ router.StaticFS("/demo", http.FS(uiserver.Assets))
 
 执行 `make embed_ui && UI=1 make && make run` 进行测试，访问 localhost:8080，得到的是下面这样的结果：
 
-![](./go-embed-no-sub.png)
+![](./assets/go-embed-no-sub.png)
 
 而不是预期中的 index.html。
 
